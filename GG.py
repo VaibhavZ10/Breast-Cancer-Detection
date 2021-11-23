@@ -10,10 +10,12 @@
 
 import numpy as np
 import pandas as pd
+df = pd.read_csv (r'C:\Users\Asus\Desktop\Flask\data.csv')
+print (df)
 import matplotlib.pyplot as plt
 import seaborn as sns
 plt.style.use("ggplot")
-get_ipython().run_line_magic('matplotlib', 'inline')
+plt.show(block=True)
 
 
 # ## Importing Dataset
