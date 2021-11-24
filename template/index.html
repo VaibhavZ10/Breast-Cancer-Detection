@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="C:\Users\Asus\Desktop\Flask\static\style.css"> 
+     <!-- add icon link -->
+     <link rel = "icon" type = "image/x-icon" href ="static/logo_tr.png">  
+    <title>Breast Cancer Prediction Model</title>
+    <meta charset="utf-8" name="viewport" 
+    content= "width=device-width, initial-scale=1.0">
+   <!--<style>
+      div {
+        background-image: url('static/bg.png');
+      }
+      </style> -->
+
+  </head>
+  
+  <body>
+    <div class="container_main">
+      <div class="sub_container" id="holder">
+          <table>
+            <tr>
+            <td><center><h1 class='main_heading'>Breast Cancer Prediction Model</h1></center></td>
+          </tr>
+        </table>
+        <hr style="height:3px;border-width:0;color:gray;background-color:gray">
+        <p align ="left"> This Regression model is based on 10 features that classify whether the breast cancer is Benign or Malignant tumor. For concluding the tumor type, users are requested to submit their data on this following form as per the value range provided in the input placeholder.
+        </p>
+        <table class="t1">
+        <form class="form-horizontal" action="{{ url_for('predict')}}" method="post">
+          <div class="form-group">
+            <div class="col-sm-10">
+                <thead>
+                  <tr><th colspan="2"><b><h4>Submission Form </h4></b></th></tr>
+                </thead>
+                <tfoot>
+                  <tr><th colspan="2"><b><h4> </h4></b></th></tr>
+                </tfoot>
+                 <tr><td><label for = "texture_mean">Texture Mean:</label></td>
+                  <td>          
+                    <span>
+                      <input  class="form-control" type= "text" name="texture_mean" placeholder="Value range: 9.71 - 39.28" required="required" />
+                    </span>
+                </td></tr>
+        </div>
+      </div>
+     
+      <div class="form-group">
+        <div class="col-sm-10">
+          <tr><td><label for = "radius_mean">Radius Mean:</label></td>
+            <td>
+          <span>
+          <input  class="form-control" type="text" name="radius_mean" placeholder="Value range: 3.38 - 14.11" required="required" />
+        </span>
+      </td></tr>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <div class="col-sm-10">
+          <tr><td><label for = "area_mean">Area Mean:</label></td>
+            <td>
+          <span><input  class="form-control" type="text" name="area_mean" placeholder="Value range: 143.50 - 2501.00" required="required" /></span>
+          </td></tr>
+        </div>
+      </div>
+
+      
+      <div class="form-group">
+        <div class="col-sm-10">
+          <tr><td><label for = "concavity_mean">Concavity Mean:</label></td>
+            <td>
+          <span>
+          <input  class="form-control" type="text" name="concavity_mean" placeholder="Value range: 0.00 - 0.43" required="required" />
+        </span>
+      </td></tr>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="col-sm-10">
+        <tr><td><label for = "perimete_mean">Preimeter Mean:</label></td>
+          <td>
+          <span>
+          <input  class="form-control" type="text" name="perimeter_mean" placeholder="Value range: 6.80 - 542.20" required="required" />
+          </span>
+        </td></tr>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="col-sm-10">
+          <tr><td><label for = "smoothness_mean">Smoothness Mean:</label></td>
+          <td>
+          <span>
+          <input  class="form-control" type="text" name="smoothness_mean" placeholder="Value range: 0.00 - 0.40" required="required" />
+          </span>
+        </td></tr>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="col-sm-10">
+          <tr><td><label for = "compactness_mean">Compactness Mean:</label></td>
+            <td>
+          <span>
+          <input  class="form-control" type="text" name="compactness_mean" placeholder="Value range: 0.00 - 0.03" required="required" />
+          </span>
+        </td></tr>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="col-sm-10">
+          <tr><td><label for = "concave points_mean">Concave Points Mean:</label></td>
+            <td>
+          <span>
+          <input  class="form-control" type="text" name="concave points_mean" placeholder="Value range: 0.07 - 0.22" required="required" />
+          </span>
+        </td></tr>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-10">
+          <tr><td><label for = "symmetry_mean">Symmetry Mean:</label></td>
+          <td>
+          <span>
+          <input  class="form-control" type="text" name="symmetry_mean" placeholder="Value range: 0.00 - 1.25" required="required" />
+          </span>
+        </td></tr>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-10">
+          <tr><td><label for = "fractal_dimension_mean">Fractal Dimension Mean:</label></td>
+            <td>
+          <span>
+          <input  class="form-control" type="text" name="fractal_dimension_mean" placeholder="Value range: 0.16 - 0.66" required="required" />
+          </span>
+        </td></tr>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+         <tr><td colspan="2"><button type="submit" class="btnsub">PREDICT</button></td></tr>
+        </div>
+      </div>
+    </form>
+    <h2 class="result"></h2>
+  </div>
+  </div>
+  </table>
+  <form action="/sub" method ="post">
+      <input type="submit">
+  </form>
+  </body>
+</html>
