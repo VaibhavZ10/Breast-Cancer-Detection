@@ -1,7 +1,7 @@
 import pickle
 import numpy as np
 from flask import Flask, request, jsonify, render_template
-import GG 
+import model
 from sklearn.preprocessing import StandardScaler
 
 app = Flask(__name__, static_url_path='/static')
@@ -12,6 +12,12 @@ scaler = pickle.load(open('scaler.pkl', 'rb'))
 @app.route('/')
 def home():
     return render_template('index.html')
+
+@app.route('/sub', methods="post")
+def predict():
+    
+
+    return render_template('sub.html')
 
 def predict():
 
